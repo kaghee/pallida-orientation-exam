@@ -20,7 +20,11 @@
         <th>Color</th>
         <th>Year</th>
     </tr>
+    <!--
     <tr th:unless="${platelist.size()} == ${numOfCars}" th:each="plate: ${platelist}" th:object="${plate}">
+    //-->
+    <tr th:unless="${platelist.size()} == ${numOfCars}"th:each="plate: ${platelist}">
+    <tr th:if="${platelist.size()} == ${numOfCars}" th:each="plate: ${allcars}">
         <td th:text="*{plate}"></td>
         <td><a th:href="@{'/search/{brand}' (brand=${plate.car_brand})}" th:text="*{car_brand}"></a></td>
         <td th:text="*{car_model}"></td>

@@ -25,9 +25,8 @@ public class OrientationExamApplication implements CommandLineRunner{
 		plateRepo.save(new LicencePlate("MXS-803", "Subaru", "Legacy", "Pink", 2001));
 		plateRepo.save(new LicencePlate("BFH-682", "Cadillac", "CTS", "Yellow", 2004));
 		plateRepo.save(new LicencePlate("QQG-264", "Pontiac", "Grand Prix", "Fuscia", 1964));
-		plateRepo.save(new LicencePlate("QQG-264", "Pontiac", "Grand Prix", "Fuscia", 1964));
+		plateRepo.save(new LicencePlate("RB99-01", "Audi", "R8", "White", 2011));
 		plateRepo.save(new LicencePlate("JUO-705", "Infiniti", "M", "Crimson", 2004));
 		plateRepo.save(new LicencePlate("CICA-01", "Pontiac", "Grand Am", "Aquamarine", 1991));
-
 	}
 }

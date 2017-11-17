@@ -22,6 +22,7 @@ public class MainController {
     @GetMapping({"", "/"})
     public String loadMain(Model model) {
         model.addAttribute("numOfCars", NUM_OF_CARS);
+        model.addAttribute("allcars", plateRepo.findAll());
         model.addAttribute("platelist", plateRepo.findAll());
         return "main";
     }
