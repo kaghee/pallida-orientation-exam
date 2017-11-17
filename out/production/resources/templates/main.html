@@ -6,23 +6,23 @@
 </head>
 <body>
 <h1>Licence Plate Search</h1>
-<form action="#" method="get">
-    <input type="text" name="brand" placeholder="Enter a licence plate"/>
+<form th:action="@{/search}" method="get">
+    <input type="text" name="q" placeholder="Enter a licence plate"/>
     <input type="submit" value="Search"/>
 </form>
-<p><a href="">Police cars only</a></p>
-<p><a href="">Diplomats only</a></p>
+<p><a th:href="@{'/search?police=1'}">Police cars only</a></p>
+<p><a th:href="@{'/search?diplomat=1'}">Diplomats only</a></p>
 <table>
     <tr>
         <th>Licence plate</th>
-        <th><a th:href="@{'/search/{brand}' (id=${plate.car_brand})}">Brand</a></th>
+        <th>Brand</th>
         <th>Model</th>
         <th>Color</th>
         <th>Year</th>
     </tr>
-    <tr th:each="plate: ${platelist}" th:object="${plate}">
+    <tr th:unless="${platelist.size()} == ${numOfCars}" th:each="plate: ${platelist}" th:object="${plate}">
         <td th:text="*{plate}"></td>
-        <td th:text="*{car_brand}"></td>
+        <td><a th:href="@{'/search/{brand}' (brand=${plate.car_brand})}" th:text="*{car_brand}"></a></td>
         <td th:text="*{car_model}"></td>
         <td th:text="*{color}"></td>
         <td th:text="*{year}"></td>

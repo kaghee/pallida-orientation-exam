@@ -15,7 +15,6 @@ public class LicencePlate {
     int year;
 
     public LicencePlate() {
-
     }
 
     public LicencePlate(String plate, String car_brand, String car_model, String color, int year) {
