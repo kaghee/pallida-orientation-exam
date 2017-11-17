@@ -7,7 +7,7 @@
 <body>
 <h1>Licence Plate Search</h1>
 <form action="#" method="get">
-    <input type="text" name="userName" placeholder="Enter a licence plate"/>
+    <input type="text" name="brand" placeholder="Enter a licence plate"/>
     <input type="submit" value="Search"/>
 </form>
 <p><a href="">Police cars only</a></p>
@@ -15,10 +15,17 @@
 <table>
     <tr>
         <th>Licence plate</th>
-        <th>Brand</th>
+        <th><a th:href="@{'/search/{brand}' (id=${plate.car_brand})}">Brand</a></th>
         <th>Model</th>
         <th>Color</th>
         <th>Year</th>
+    </tr>
+    <tr th:each="plate: ${platelist}" th:object="${plate}">
+        <td th:text="*{plate}"></td>
+        <td th:text="*{car_brand}"></td>
+        <td th:text="*{car_model}"></td>
+        <td th:text="*{color}"></td>
+        <td th:text="*{year}"></td>
     </tr>
 </table>
 </body>
